@@ -1,15 +1,21 @@
 """test_calculation.py"""
 from decimal import Decimal
+import logging
 from calculator.calculation import Calculation
 from calculator.operations import Command
 
+# Set up logging
+logger = logging.getLogger(__name__)
+
 class MockCommand(Command):
-    """class MockCommand"""
+    """MockCommand class"""
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        logger.info("Executing MockCommand.")
         return a + b
 
 def test_create_calculation():
-    """testing create calculation"""
+    """Test the creation of calculation."""
+    logger.info("Testing creation of calculation.")
     a = Decimal('2')
     b = Decimal('3')
     command = MockCommand()
@@ -19,7 +25,8 @@ def test_create_calculation():
     assert calculation.command == command
 
 def test_perform_calculation():
-    """testing perform calculation"""
+    """Test performing calculation."""
+    logger.info("Testing performing of calculation.")
     a = Decimal('4')
     b = Decimal('5')
     command = MockCommand()
@@ -28,7 +35,8 @@ def test_perform_calculation():
     assert result == a + b
 
 def test_repr_calculation():
-    """testing repr calculation"""
+    """Test string representation of calculation."""
+    logger.info("Testing string representation of calculation.")
     a = Decimal('6')
     b = Decimal('7')
     command = MockCommand()
