@@ -1,12 +1,15 @@
 # plugins/menu_plugin.py
 from decimal import Decimal
 from plugins.plugin_interface import CommandPlugin
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 class MenuPlugin(CommandPlugin):
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        print("Available Commands:")
-        print("add - Addition")
-        print("subtract - Subtraction")
-        print("multiply - Multiplication")
-        print("divide - Division")
-        return 0  # Return 0 or any value, as it won't affect the result
+        logger.info("Displaying available commands.")
+        logger.info("add - Addition")
+        logger.info("subtract - Subtraction")
+        logger.info("multiply - Multiplication")
+        logger.info("divide - Division")
